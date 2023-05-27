@@ -1,24 +1,19 @@
 import React from 'react';
+import {dataProvider} from "./utils/dataProvider";
 import logo from './logo.svg';
 import './App.css';
+import UsersList from "./components/UsersList/UsersList";
+import { Admin, Resource, ListGuesser } from "react-admin";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Admin dataProvider={dataProvider}>
+            <Resource name="users" list={UsersList} />
+            <Resource name="comments" list={ListGuesser} />
+        </Admin>
+
+
     </div>
   );
 }
