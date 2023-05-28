@@ -10,6 +10,7 @@ import {
   useRecordContext,
 } from "react-admin";
 import { useMediaQuery } from "@mui/material";
+import { MyImageField, MyUrlField } from "../CustomFields/CustomFields";
 
 interface UsersListProps {
   variant: string;
@@ -34,7 +35,9 @@ const UsersList: FC<UsersListProps> = ({ variant }) => {
           <EmailField source="email" />
           {/*<TextField source="address.street" />*/}
           <TextField source="phone" />
-          <UrlField source="website" />
+          {/*<UrlField source="website" />*/}
+          <MyUrlField source="website" />
+          <MyImageField source="photo" />
 
           <TextField source="company.name" />
         </Datagrid>
